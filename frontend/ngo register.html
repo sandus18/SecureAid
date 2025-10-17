@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureAid | NGO Registration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a0f24, #1b2a49);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 10px;
+    }
+    .glass {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="glass w-full max-w-2xl p-8 rounded-2xl shadow-2xl">
+    <h1 class="text-3xl font-semibold text-center text-emerald-400 mb-6">SecureAid NGO Registration</h1>
+
+    <form id="registerForm" class="space-y-6" enctype="multipart/form-data">
+      <!-- NGO Details -->
+      <div>
+        <h2 class="text-lg font-semibold text-slate-300 mb-2">Organization Details</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" id="ngoName" name="ngoName" placeholder="NGO Name" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+          <input type="text" id="regId" name="regId" placeholder="Registration / License ID" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+          <input type="text" id="ngoType" name="ngoType" placeholder="Type of NGO (Health, Education...)" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+          <input type="text" id="address" name="address" placeholder="Address / City / State" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+        </div>
+      </div>
+
+      <!-- Contact & Login Info -->
+      <div>
+        <h2 class="text-lg font-semibold text-slate-300 mb-2">Contact & Login Info</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="email" id="email" name="email" placeholder="Official Email ID" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+          <input type="tel" id="contact" name="contact" placeholder="Contact Number" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+          <input type="password" id="password" name="password" placeholder="Password" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+        </div>
+      </div>
+
+      <!-- Operational Info -->
+      <div>
+        <h2 class="text-lg font-semibold text-slate-300 mb-2">Operational Info</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" id="domain" name="domain" placeholder="Domain of Work" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+          <select id="cloudProvider" name="cloudProvider" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+            <option value="">Select Cloud Provider</option>
+            <option value="Azure">Microsoft Azure</option>
+            <option value="AWS">Amazon Web Services</option>
+            <option value="GCP">Google Cloud</option>
+          </select>
+          <input type="number" id="employeeCount" name="employeeCount" placeholder="No. of Employees / Volunteers" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+          <select id="reportFreq" name="reportFreq" required class="p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+            <option value="">Threat Reporting Frequency</option>
+            <option value="Daily">Daily</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Monthly">Monthly</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Upload Verification Documents -->
+      <div>
+        <h2 class="text-lg font-semibold text-slate-300 mb-2">Verification Documents</h2>
+        <div class="space-y-3">
+          <label class="text-sm text-slate-400">Upload NGO Registration Certificate (PDF or Image)</label>
+          <input type="file" id="docUpload" name="docUpload" accept=".pdf,.jpg,.jpeg,.png" required class="w-full text-slate-300">
+        </div>
+      </div>
+
+      <!-- OTP Section -->
+      <div>
+        <h2 class="text-lg font-semibold text-slate-300 mb-2">Email Verification (OTP)</h2>
+        <div class="flex items-center space-x-2">
+          <input type="text" id="otp" name="otp" maxlength="6" placeholder="Enter 6-digit OTP" class="flex-1 p-3 rounded-lg bg-slate-800/50 border border-slate-700 text-slate-100">
+          <button type="button" id="sendOtp" class="bg-emerald-500 text-slate-900 font-semibold px-4 py-2 rounded-lg hover:bg-emerald-400 transition">Send OTP</button>
+        </div>
+      </div>
+
+      <!-- CAPTCHA -->
+      <div class="flex items-center space-x-2">
+        <input type="checkbox" id="captcha" class="w-4 h-4 text-emerald-400 border-slate-600 focus:ring-emerald-400">
+        <label for="captcha" class="text-sm text-slate-400">I'm not a robot</label>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="w-full py-3 bg-emerald-500 text-slate-900 font-semibold rounded-lg hover:bg-emerald-400 transition">Register Securely</button>
+    </form>
+
+    <p class="text-center text-sm text-slate-400 mt-6">
+      Already have an account?
+      <a href="login.html" class="text-emerald-400 hover:underline">Login</a>
+    </p>
+  </div>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const sendOtpBtn = document.getElementById('sendOtp');
+    let generatedOtp = null;
+
+    // OTP Simulation
+    sendOtpBtn.addEventListener('click', () => {
+      const email = document.getElementById('email').value;
+      if (!email) {
+        alert('Enter your email before requesting OTP.');
+        return;
+      }
+      generatedOtp = Math.floor(100000 + Math.random() * 900000);
+      alert('OTP sent to ' + email + ': ' + generatedOtp); // Simulated OTP
+    });
+
+    // Form submission
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const otp = document.getElementById('otp').value;
+      const captcha = document.getElementById('captcha').checked;
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+      }
+
+      if (!captcha) {
+        alert('Please verify the CAPTCHA.');
+        return;
+      }
+
+      if (otp != generatedOtp) {
+        alert('Invalid or missing OTP. Please verify your email.');
+        return;
+      }
+
+      // Create payload for backend
+      const formData = new FormData(form);
+      console.log('Form data ready to send:', Object.fromEntries(formData));
+
+      // Example: send to Azure backend
+      // fetch('https://your-azure-function-endpoint/api/register', {
+      //   method: 'POST',
+      //   body: formData
+      // })
+      // .then(res => res.json())
+      // .then(data => {
+      //   alert('Registration successful! Await admin approval.');
+      //   window.location.href = 'login.html';
+      // })
+      // .catch(err => console.error('Error:', err));
+
+      alert('Registration successful! Await admin approval.');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
