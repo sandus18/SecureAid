@@ -1,43 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <title>SecureAid — Intelligent Cybersecurity for NGOs</title>
+    <meta name="description" content="SecureAid — a cybersecurity intelligence platform built for NGOs using Zero Trust, CTEM & CSPM." />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); }
+    </style>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <body class="bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900 text-slate-100 min-h-screen">
+    <header class="max-w-6xl mx-auto p-6 flex items-center justify-between border-b border-slate-800/40">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-emerald-500 text-slate-900 font-bold text-lg">SA</div>
+        <div>
+          <h1 class="font-semibold text-lg tracking-wide">SecureAid</h1>
+          <p class="text-xs text-slate-400">Cybersecurity Intelligence Platform for NGOs</p>
+        </div>
+      </div>
+      <nav class="flex items-center gap-6">
+        <a href="#about" class="text-sm hover:text-emerald-400 transition">About</a>
+        <a href="#features" class="text-sm hover:text-emerald-400 transition">Features</a>
+        <a href="#contact" class="text-sm hover:text-emerald-400 transition">Contact</a>
+        <a href="login.html" class="px-4 py-2 rounded-lg bg-emerald-500 text-slate-900 font-semibold hover:bg-emerald-400 transition">Sign in</a>
+      </nav>
+    </header>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <main class="max-w-6xl mx-auto p-6 space-y-16">
+      <!-- Hero Section -->
+      <section class="grid md:grid-cols-2 gap-10 items-center pt-12">
+        <div>
+          <h2 class="text-5xl font-extrabold leading-tight tracking-tight">Empowering NGOs with <span class="text-emerald-400">Zero Trust Security</span></h2>
+          <p class="mt-5 text-slate-300 text-lg leading-relaxed">SecureAid simplifies cybersecurity for non-profits through advanced risk detection, cloud posture management, and Zero Trust controls — ensuring mission continuity and data protection at every layer.</p>
+
+          <div class="mt-8 flex gap-4">
+            <a href="#features" class="px-6 py-3 bg-emerald-500 text-slate-900 font-semibold rounded-lg shadow hover:bg-emerald-400 transition">Explore Features</a>
+            <a href="#about" class="px-6 py-3 border border-slate-700 text-slate-200 rounded-lg hover:border-emerald-400 transition">Learn More</a>
+          </div>
+        </div>
+
+        <div class="glass p-6 rounded-2xl border border-slate-700/40 text-center">
+          <h3 class="text-xl font-semibold mb-3">SecureAid Dashboard Preview</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 rounded-lg bg-slate-800/40">
+              <p class="text-xs text-slate-400">Compliance Score</p>
+              <p class="text-3xl font-bold text-emerald-400">92%</p>
+            </div>
+            <div class="p-4 rounded-lg bg-slate-800/40">
+              <p class="text-xs text-slate-400">Active Incidents</p>
+              <p class="text-3xl font-bold text-amber-400">2</p>
+            </div>
+            <div class="p-4 rounded-lg bg-slate-800/40">
+              <p class="text-xs text-slate-400">Zero Trust Policies</p>
+              <p class="text-3xl font-bold text-emerald-300">14</p>
+            </div>
+            <div class="p-4 rounded-lg bg-slate-800/40">
+              <p class="text-xs text-slate-400">Last Scan</p>
+              <p class="text-3xl font-bold">Oct 12, 2025</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="text-center space-y-6">
+        <h3 class="text-3xl font-semibold">About SecureAid</h3>
+        <p class="max-w-3xl mx-auto text-slate-300 text-lg leading-relaxed">SecureAid is a next-generation cybersecurity platform designed exclusively for NGOs and humanitarian organizations. Built with Zero Trust principles, Continuous Threat Exposure Management (CTEM), and Cloud Security Posture Management (CSPM), it ensures resilience against evolving threats while simplifying compliance and governance.</p>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-2xl glass border border-slate-700/40">
+          <h4 class="font-semibold text-lg text-emerald-400">Zero Trust Enforcement</h4>
+          <p class="mt-3 text-slate-300 text-sm leading-relaxed">Micro-segmentation, adaptive authentication, and session-aware access control to ensure only verified entities communicate.</p>
+        </div>
+        <div class="p-8 rounded-2xl glass border border-slate-700/40">
+          <h4 class="font-semibold text-lg text-emerald-400">Continuous Threat Exposure Management</h4>
+          <p class="mt-3 text-slate-300 text-sm leading-relaxed">Detect exposures continuously, evaluate risks dynamically, and prioritize remediation through automated insights.</p>
+        </div>
+        <div class="p-8 rounded-2xl glass border border-slate-700/40">
+          <h4 class="font-semibold text-lg text-emerald-400">Cloud Security Posture Management</h4>
+          <p class="mt-3 text-slate-300 text-sm leading-relaxed">Analyze configurations, detect compliance gaps, and enforce secure defaults across NGO cloud environments.</p>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="text-center space-y-6">
+        <h3 class="text-3xl font-semibold">Contact & Support</h3>
+        <p class="text-slate-300 max-w-2xl mx-auto">Want to collaborate or request a demo for your organization? Reach out to our team at <a href="mailto:support@secureaid.org" class="text-emerald-400 hover:underline">support@secureaid.org</a>.</p>
+      </section>
+
+      <!-- Footer -->
+      <footer class="text-center text-slate-500 text-sm py-8 border-t border-slate-800/40">
+        <p>© 2025 SecureAid — Empowering NGOs with Cybersecurity Intelligence</p>
+      </footer>
+    </main>
   </body>
 </html>
